@@ -1,0 +1,31 @@
+= link_to '予定を書き込む', new_event_path, class: 'btn'
+
+= link_to 'ユーザー', class: 'user_btn'
+
+#calendar
+%h1 Listing events
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Start date
+      %th End date
+      %th
+      %th
+      %th
+
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= event.title
+        %td= event.description
+        %td= event.start_date
+        %td= event.end_date
+        %td= link_to '内容', event
+        %td= link_to '編集', edit_event_path(event)
+        %td= link_to '削除', event, method: :delete, data: { confirm: '削除しますか?' }
+%br
+
+
